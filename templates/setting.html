@@ -44,11 +44,10 @@
                     </div>
                     <div class="bg-white rounded-md lg:shadow-lg shadow col-span-2">
                         
-                    <form action="" method="POST" enctype="multipart/form-data">
+                    <form action="" method="POST" enctype="multipart/form-data"> 
+                        <!-- enctype="multipart/form-data is important when submitting a form with image/file cos if it is not included, it will only submit the text area without the image or file -->
                         {% csrf_token %}
-                       <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">
-                           
-                           
+                       <div class="grid grid-cols-2 gap-3 lg:p-6 p-4">                           
                             <div class="col-span-2">
                                 <label for=""> Profile Image</label>
                                 <img width="100" height="100" src="{{user_profile.profileimg.url}}" />
@@ -61,10 +60,8 @@
                             <div class="col-span-2">
                                 <label for=""> Location</label>
                                 <input type="text" name="location" value="{{user_profile.location}}" class="shadow-none bg-gray-100">
-                            </div>
-                            
+                            </div>                            
                        </div> 
-    
                        <div class="bg-gray-10 p-6 pt-0 flex justify-end space-x-3">
                            <button class="p-2 px-4 rounded bg-gray-50 text-red-500"> <a href="/">Cancel</a> </button>
                            <button type="submit" class="button bg-blue-700"> Save </button>
